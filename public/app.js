@@ -21,12 +21,15 @@ const ul = document.querySelector("ul");
 const list = new ListTemplate(ul);
 form.addEventListener("submit", (e) => {
     e.preventDefault();
+    // TUPLES
+    let values;
+    values = [toFrom.value, details.value, amount.valueAsNumber];
     let doc;
     if (type.value === "invoice") {
-        doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber);
+        doc = new Invoice(...values);
     }
     else {
-        doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
+        doc = new Payment(...values);
     }
     console.log(doc);
     list.render(doc, type.value, "end");
