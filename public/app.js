@@ -31,3 +31,4 @@ form.addEventListener("submit", (e) => {
     console.log(doc);
     list.render(doc, type.value, "end");
 });
+// GENERICS
