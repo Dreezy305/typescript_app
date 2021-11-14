@@ -52,11 +52,27 @@ const addUID = <T extends { name: string }>(obj: T) => {
 };
 
 let doct = addUID({ name: "yoshi", age: 40 });
-console.log(doct.age);
+console.log(doct);
 
 // GENERICS WITH INTERFACE
-interface Resource {
+interface Resource<T> {
   uid: number;
   resourceName: string;
-  data: "???";
+  data: T;
 }
+
+const docThree: Resource<object> = {
+  uid: 1,
+  resourceName: "person",
+  data: { name: "shaun" },
+};
+
+console.log(docThree);
+
+const docFour: Resource<string[]> = {
+  uid: 1,
+  resourceName: "You",
+  data: ["shaun", "mario", "luigi"],
+};
+
+console.log(docFour);
