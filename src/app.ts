@@ -55,15 +55,24 @@ let doct = addUID({ name: "yoshi", age: 40 });
 console.log(doct);
 
 // GENERICS WITH INTERFACE
+// ENUM
+enum ResourceName {
+  BOOK,
+  AUTHOR,
+  FILM,
+  DIRECTOR,
+  PERSON,
+}
+
 interface Resource<T> {
   uid: number;
-  resourceName: string;
+  resourceName: ResourceName;
   data: T;
 }
 
 const docThree: Resource<object> = {
   uid: 1,
-  resourceName: "person",
+  resourceName: ResourceName.AUTHOR,
   data: { name: "shaun" },
 };
 
@@ -71,8 +80,9 @@ console.log(docThree);
 
 const docFour: Resource<string[]> = {
   uid: 1,
-  resourceName: "You",
+  resourceName: ResourceName.BOOK,
   data: ["shaun", "mario", "luigi"],
 };
 
 console.log(docFour);
+console.log(docThree);

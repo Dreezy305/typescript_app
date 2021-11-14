@@ -38,15 +38,26 @@ const addUID = (obj) => {
 };
 let doct = addUID({ name: "yoshi", age: 40 });
 console.log(doct);
+// GENERICS WITH INTERFACE
+// ENUM
+var ResourceName;
+(function (ResourceName) {
+    ResourceName[ResourceName["BOOK"] = 0] = "BOOK";
+    ResourceName[ResourceName["AUTHOR"] = 1] = "AUTHOR";
+    ResourceName[ResourceName["FILM"] = 2] = "FILM";
+    ResourceName[ResourceName["DIRECTOR"] = 3] = "DIRECTOR";
+    ResourceName[ResourceName["PERSON"] = 4] = "PERSON";
+})(ResourceName || (ResourceName = {}));
 const docThree = {
     uid: 1,
-    resourceName: "person",
+    resourceName: ResourceName.AUTHOR,
     data: { name: "shaun" },
 };
 console.log(docThree);
 const docFour = {
     uid: 1,
-    resourceName: "You",
+    resourceName: ResourceName.BOOK,
     data: ["shaun", "mario", "luigi"],
 };
 console.log(docFour);
+console.log(docThree);
